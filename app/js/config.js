@@ -1,16 +1,12 @@
 let configRouter = function ($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('view-one', {
-      url: '/view-one',
-      templateUrl: 'templates/view-one/view-one.html',
-      controller: 'ViewOneController as ViewOneCtrl'
-    })
-    .state('view-two', {
-      url: '/view-two',
-      templateUrl: 'templates/view-two/view-two.html',
-      controller: 'ViewTwoController as ViewTwoCtrl'
+    .state('dashboard', {
+      url: '/dashboard',
+      templateUrl: 'templates/dashboard/dashboard.html',
+      controller: 'DashboardController as DashboardCtrl'
     });
-  $urlRouterProvider.otherwise('view-one');
+
+  $urlRouterProvider.otherwise('dashboard');
 };
 
 configRouter.$inject = ['$stateProvider', '$urlRouterProvider'];

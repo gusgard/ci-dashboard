@@ -1,4 +1,4 @@
-class ViewOneController {
+class DashboardController {
   static get $inject () {
     return ['CountStore'];
   }
@@ -14,4 +14,4 @@ class ViewOneController {
   }
 }
 
-export default ViewOneController;
+export default DashboardController;

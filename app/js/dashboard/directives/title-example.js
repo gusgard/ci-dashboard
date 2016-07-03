@@ -1,7 +1,7 @@
 class TitleExample {
   constructor () {
     this.restrict = 'E';
-    this.templateUrl = 'templates/view-one/directives/title-example.html';
+    this.templateUrl = 'templates/dashboard/directives/title-example.html';
     this.scope = {
       title: '@',
       message: '@clickMessage'

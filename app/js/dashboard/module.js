@@ -4,7 +4,7 @@ import CountStore from './services/count-store.js';
 import TitleExample from './directives/title-example.js';
 
 angular
-  .module('myApp.view-one', [])
-  .controller('ViewOneController', ViewOneController)
+  .module('myApp.dashboard', [])
+  .controller('DashboardController', ViewOneController)
   .service('CountStore', CountStore)
   .directive('titleExample', TitleExample.directiveFactory);
