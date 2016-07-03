@@ -1,0 +1,12 @@
+language: node_js
+node_js:
+  - "5.9.1"
+sudo: false
+
+script:
+  - ./node_modules/.bin/gulp eslint
+  - ./node_modules/.bin/gulp test
+
+cache:
+  directories:
+    - node_modules

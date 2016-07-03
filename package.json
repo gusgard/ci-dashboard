@@ -1,0 +1,64 @@
+{
+  "name": "angular-seed-es6",
+  "version": "0.0.1",
+  "description": "Seed project for angular 1.x apps using best practices and es6",
+  "homepage": "https://github.com/gusgard/angular-seed-es6#readme",
+  "author": "Gustavo Gard",
+  "keywords": [
+    "angular",
+    "es6",
+    "angular-seed",
+    "template"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gusgard/angular-seed-es6.git"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "gulp watch",
+    "build": "gulp build",
+    "test": "gulp test"
+  },
+  "dependencies": {
+    "angular": "^1.5.2",
+    "angular-animate": "^1.5.7",
+    "angular-aria": "^1.5.7",
+    "angular-material": "^1.1.0-rc.5",
+    "angular-ui-router": "^0.3.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.7.2",
+    "babel-eslint": "^6.1.0",
+    "babel-preset-es2015": "^6.6.0",
+    "babelify": "^7.2.0",
+    "brfs": "^1.4.3",
+    "browser-sync": "^2.11.1",
+    "browserify": "^13.0.0",
+    "browserify-ngannotate": "^2.0.0",
+    "bulkify": "^1.2.0",
+    "debowerify": "^1.4.1",
+    "eslint": "^3.0.0",
+    "estraverse-fb": "^1.3.1",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean-css": "^2.0.3",
+    "gulp-concat": "^2.5.0",
+    "gulp-eslint": "^3.0.0",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-if": "^2.0.0",
+    "gulp-load-plugins": "^1.2.0",
+    "gulp-rev-append": "^0.1.6",
+    "gulp-sass": "^2.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.1.0",
+    "run-sequence": "^1.1.5",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.7.0"
+  },
+  "bugs": {
+    "url": "https://github.com/gusgard/angular-seed-es6/issues"
+  }
+}
