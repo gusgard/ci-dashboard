@@ -1,7 +1,9 @@
 <section class="view-one">
-  <h1> Hello view {{DashboardCtrl.name}}
-    <span>{{DashboardCtrl.CountStore.count}}</span>
-  </h1>
+  <h1>Dashboard</h1>
 </section>
 
-<title-example title="WOW!" click-message="You clicked me!"></title-example>
+<div class="" ng-repeat="project in DashboardCtrl.projects">
+  <span> {{::project.type}}</span>
+  <span> {{::project.name}}</span>
+  <span> {{::project.owner}}</span>
+</div>

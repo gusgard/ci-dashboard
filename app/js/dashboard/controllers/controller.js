@@ -1,16 +1,19 @@
 class DashboardController {
   static get $inject () {
-    return ['CountStore'];
+    return ['ProjectStore'];
   }
 
-  constructor (CountStore) {
-    this.CountStore = CountStore;
+  constructor (ProjectStore) {
+    this.ProjectStore = ProjectStore;
     this.init();
   }
 
   init () {
-    this.name = 'ONE';
-    this.CountStore.increment();
+    let {ProjectStore} = this;
+    ProjectStore.download().then(() => {
+      this.projects = ProjectStore.projects;
+      console.log(this.projects);
+    });
   }
 }
 

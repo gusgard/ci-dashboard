@@ -13,7 +13,7 @@
     },
     "build": {
       "debug": {},
-      "relase": {},
+      "release": {},
       "time": "04/06/2016"
     },
     "unitTest": {
@@ -32,7 +32,7 @@
     "name": "312312541",
     "owner": "samy",
     "time": "05/12/2016",
-    "state": "Accepted",
+    "state": "complete",
     "metrics": {
       "test": 11,
       "maintainability": 22,
@@ -41,7 +41,7 @@
     },
     "build": {
       "debug": {},
-      "relase": {},
+      "release": {},
       "time": "15/06/2016"
     },
     "unitTest": {
@@ -56,11 +56,11 @@
     }
   },
   {
-    "type": "firewall",
+    "type": "FireWall",
     "name": "9876451",
     "owner": "samy",
     "time": "12/11/2016",
-    "state": "complete",
+    "state": "Accepted",
     "metrics": {
       "test": 83,
       "maintainability": 61,
@@ -69,7 +69,7 @@
     },
     "build": {
       "debug": {},
-      "relase": {},
+      "release": {},
       "time": "04/06/2016"
     },
     "unitTest": {
