@@ -2,8 +2,23 @@
   <h1>Dashboard</h1>
 </section>
 
-<div class="" ng-repeat="project in DashboardCtrl.projects">
-  <span> {{::project.type}}</span>
-  <span> {{::project.name}}</span>
-  <span> {{::project.owner}}</span>
+<div layout="row">
+  <span flex> Changelist / Build </span>
+  <span flex> Owner </span>
+  <span flex> Time started </span>
+  <span flex> State </span>
+  <span flex> Metrics </span>
+  <span flex> Build </span>
+  <span flex> Unit Test </span>
+  <span flex> Functional Test </span>
+</div>
+<div ng-repeat="project in DashboardCtrl.projects" layout="row">
+  <span flex>{{project.type}}</span>
+  <span flex>{{project.name}}</span>
+  <span flex>{{project.owner}}</span>
+  <span flex>{{project.time}}</span>
+  <span flex>{{project.state}}</span>
+  <span flex>{{project.state}}</span>
+  <span flex>{{project.state}}</span>
+  <span flex>{{project.state}}</span>
 </div>
