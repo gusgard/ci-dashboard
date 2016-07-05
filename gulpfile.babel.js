@@ -14,6 +14,8 @@ import browserify   from 'browserify';
 import babelify     from 'babelify';
 import debowerify   from 'debowerify';
 // import ngAnnotate   from 'browserify-ngannotate';
+import generateProjects from './api-projects.js';
+import jsonServer from 'json-server';
 
 let isProd = false;
 
@@ -78,6 +80,12 @@ gulp.task('assets', () => {
     .pipe(gulp.dest(`${DIRS.dest}/assets`));
 });
 
+// Icons
+gulp.task('font', () => {
+  return gulp.src(`${DIRS.src}/font/*`)
+    .pipe(gulp.dest(`${DIRS.dest}/font`));
+});
+
 // Minify js
 gulp.task('minifyJS', () => {
   return gulp
@@ -108,7 +116,7 @@ gulp.task('server', () => {
 
 // Task for watching file changes and livereloading the development server.
 gulp.task('watch', cb => {
-  sequence(['sass', 'browserify', 'html', 'assets'], 'revision', ['server', 'watching'], cb);
+  sequence(['sass', 'browserify', 'html', 'assets', 'font'], 'revision', ['server', 'watching'], cb);
 });
 
 gulp.task('watching', () => {
@@ -146,7 +154,7 @@ gulp.task('test', () => {
 // Build command
 gulp.task('build', cb => {
   isProd = true;
-  sequence(['sass', 'browserify', 'minifyHTML', 'assets'], 'revision', cb);
+  sequence(['sass', 'browserify', 'minifyHTML', 'assets', 'font'], 'revision', cb);
 });
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
@@ -201,4 +209,23 @@ function buildScript(file) {
 
 gulp.task('browserify', function() {
   return buildScript('app.js');
+});
+
+gulp.task('generateProjects', function () {
+  generateProjects(20).then(function (projects) {
+    var server = jsonServer.create();
+    var middlewares = jsonServer.defaults();
+
+    // Set default middlewares (logger, static, cors and no-cache)
+    server.use(middlewares);
+
+    // Add custom routes before JSON Server router
+    server.get('/projects', function (req, res) {
+      res.jsonp(projects);
+    });
+
+    server.listen(3000, function () {
+      console.log('JSON Server is running');
+    });
+  });
 });
