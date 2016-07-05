@@ -8,4 +8,69 @@
   background-color: $primary;
 }
 
+$animation-duration: 0.5s;
+$max-heigh: 20rem;
+
+.project {
+  span {
+    // margin-top: auto;
+    // margin-bottom: auto;
+    // padding: 0 0.5rem;
+    word-break: break-all;
+  }
+  .project-header {
+    margin: 0.5rem;
+    span {
+      font-weight: bold;
+    }
+  }
+  .project-row {
+    height: 4rem;
+    margin: 0.5rem;
+    transition: height $animation-duration;
+
+    .contract {
+      flex-grow: 0;
+      .state {
+        text-transform: capitalize;
+      }
+    }
+    &.selected {
+      height: $max-heigh;
+      // align-items: initial;
+      span {
+        // margin-top: 0.5rem;
+      }
+    }
+    &.accepted {
+      @include border(limegreen);
+      // background: lighten(limegreen, 5%);
+      span {
+        color: limegreen;
+      }
+    }
+    &.rejected {
+      @include border(orangered);
+      // background: lighten(orangered, 5%);
+      span {
+        color: orangered;
+      }
+    }
+    &.complete {
+      @include border(forestgreen);
+      // background: lighten(forestgreen, 5%);
+      span {
+        color: forestgreen;
+      }
+    }
+    &.fail {
+      @include border(tomato);
+      // background: lighten(tomato, 5%);
+      span {
+        color: tomato;
+      }
+    }
+  }
+}
+
 // -----------------------------------------------------------------------------

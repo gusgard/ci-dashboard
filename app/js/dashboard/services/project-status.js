@@ -33,7 +33,7 @@ class ProjectStore {
     let errorCallback = (error) => {
       console.log(error);
     };
-    return $http.get('http://localhost:3000/db').then(successCallback, errorCallback);
+    return $http.get('http://localhost:3000/projects').then(successCallback, errorCallback);
   }
 
 }

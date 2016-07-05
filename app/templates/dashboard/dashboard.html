@@ -2,23 +2,52 @@
   <h1>Dashboard</h1>
 </section>
 
-<div layout="row">
-  <span flex> Changelist / Build </span>
-  <span flex> Owner </span>
-  <span flex> Time started </span>
-  <span flex> State </span>
-  <span flex> Metrics </span>
-  <span flex> Build </span>
-  <span flex> Unit Test </span>
-  <span flex> Functional Test </span>
-</div>
-<div ng-repeat="project in DashboardCtrl.projects" layout="row">
-  <span flex>{{project.type}}</span>
-  <span flex>{{project.name}}</span>
-  <span flex>{{project.owner}}</span>
-  <span flex>{{project.time}}</span>
-  <span flex>{{project.state}}</span>
-  <span flex>{{project.state}}</span>
-  <span flex>{{project.state}}</span>
-  <span flex>{{project.state}}</span>
+<!-- .material-icons.md-64 { font-size: 64px; } -->
+
+<div class="project">
+  <div class="project-header" layout="row">
+    <span flex="15"> Changelist / Build </span>
+    <span flex="15"> Owner </span>
+    <span flex="20"> Time started </span>
+    <span flex="10"> State </span>
+    <span flex="10"> Metrics </span>
+    <span flex="10"> Build </span>
+    <span flex="10"> Unit Test </span>
+    <span flex="10"> Functional Test </span>
+  </div>
+
+  <div class="project-row"
+    ng-repeat="project in DashboardCtrl.projects"
+    ng-class="{ 'selected': project.isSelected, '{{::project.state}}': project.state }"
+    ng-click="DashboardCtrl.expand(project)"
+    layout="column">
+     <!-- layout-align=" center"
+layout-padding layout-margin layout-fill
+> -->
+    <!-- layout-margin
+    layout-padding> -->
+
+    <div class="contract" layout="row" flex >
+      <!-- layout-align="centercenter" -->
+      <span flex="5">
+        <i class="material-icons md-36">{{::project.icon}}</i>
+      </span>
+      <span flex="10">{{::project.name}}</span>
+
+      <span flex="15">{{::project.owner}}</span>
+      <span flex="20">{{::project.time}}</span>
+      <span class="state" flex="10">{{::project.state}}</span>
+      <span flex="10">π</span>
+      <span flex="10">π</span>
+      <span flex="10">π</span>
+      <span flex="10">π</span>
+    </div>
+    <div layout="row" flex ng-if="project.isSelected">
+      <span flex style="height: 250px; background: red"></span>
+      <span flex style="height: 250px; background: green"></span>
+      <span flex style="height: 250px; background: tomato"></span>
+      <span flex style="height: 250px; background: aqua"></span>
+      <span flex style="height: 250px; background: pink"></span>
+    </div>
+  </div>
 </div>

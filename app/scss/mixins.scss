@@ -1,0 +1,11 @@
+@mixin border($color) {
+  border: 0.3rem solid $color;
+}
+
+@mixin crossBrowser($property, $css) {
+  -webkit-#{$property} : $css;
+  -moz-#{$property} : $css;
+  -o-#{$property} : $css;
+  -ms-#{$property} : $css;
+  #{$property} : $css;
+}

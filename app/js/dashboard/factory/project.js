@@ -3,8 +3,14 @@ const constrains = {
   build: ['complete', 'fail']
 };
 
+const icons = {
+  firewall: 'dvr',
+  build: 'line_style'
+};
+
 class Project {
   constructor (initial) {
+    this.id = initial.id || 0;
     this.setType(initial);
     this.name = initial.name || 'Name not defined';
     this.owner = initial.owner || 'Owner not defined';
@@ -14,6 +20,9 @@ class Project {
     this.setBuild(initial);
     this.setUnitTest(initial);
     this.setFunctionalTest(initial);
+
+    this.isSelected = false;
+    this.icon = icons[this.type];
   }
 
   setType ({type}) {
