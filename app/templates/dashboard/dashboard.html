@@ -53,7 +53,7 @@ layout-padding layout-margin layout-fill
     <!-- layout-margin
     layout-padding> -->
 
-    <div class="contract" layout="row" flex >
+    <div class="contract" layout="row" flex layout-align="center center" >
       <!-- layout-align="centercenter" -->
       <span flex="5">
         <i class="material-icons md-36">{{::project.icon}}</i>
@@ -102,14 +102,21 @@ layout-padding layout-margin layout-fill
           <div layout="row">
             <div flex class="center">
               <div class="arrow">
-                <i class="material-icons md-64">arrow_upward</i>
+                <i class="material-icons md-64"
+                  ng-class="::project.metrics.test > 50 ? 'positive' : 'negative'">
+                  <!-- random arrow -->
+                  {{::project.metrics.test > 50 ? 'arrow_upward' : 'arrow_downward'}}
+                </i>
                 <span>{{::project.metrics.test}}</span>
               </div>
               <span>Test</span>
             </div>
             <div flex class="center">
               <div class="arrow">
-                <i class="material-icons md-64">arrow_back</i>
+                <i class="material-icons md-64"
+                  ng-class="::project.metrics.maintainability > 50 ? 'positive' : 'negative'">
+                  {{::project.metrics.maintainability > 50 ? 'arrow_upward' : 'arrow_downward'}}
+                </i>
                 <span>{{::project.metrics.maintainability}}</span>
               </div>
               <span>Maintainability</span>
@@ -119,14 +126,20 @@ layout-padding layout-margin layout-fill
           <div layout="row">
             <div flex class="center">
               <div class="arrow">
-                <i class="material-icons md-64">arrow_forward</i>
+                <i class="material-icons md-64 "
+                   ng-class="::project.metrics.security > 50 ? 'positive' : 'negative'">
+                  {{::project.metrics.security > 50 ? 'arrow_forward' : 'arrow_back'}}
+                </i>
                 <span>{{::project.metrics.security}}</span>
               </div>
               <span>Security</span>
             </div>
             <div flex class="center">
               <div class="arrow">
-                <i class="material-icons md-64">arrow_downward</i>
+                <i class="material-icons md-64"
+                  ng-class="::project.metrics.workmanship > 50 ? 'positive' : 'negative'">
+                  {{::project.metrics.workmanship > 50 ? 'arrow_forward' : 'arrow_back'}}
+                </i>
                 <span>{{::project.metrics.workmanship}}</span>
               </div>
               <span>Workmanship</span>
@@ -211,10 +224,6 @@ layout-padding layout-margin layout-fill
 
         </md-card-content>
       </md-card>
-      <!-- <span flex style="background: tomato">
-        <i class="material-icons md-64">build</i>
-
-      </span> -->
     </div>
   </div>
 </div>
