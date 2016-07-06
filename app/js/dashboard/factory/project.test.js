@@ -1,6 +1,6 @@
 import Project from './project.js';
 
-describe('Unit: New Project', function() {
+describe('Create New Project', function() {
 
   let project;
 
@@ -37,7 +37,7 @@ describe('Unit: New Project', function() {
     project = new Project(json);
   });
 
-  it('should exist!!!', function() {
+  it('should exist data', function() {
     expect(project).toBeDefined();
     expect(project.id).toBeDefined();
     expect(project.type).toBeDefined();
@@ -53,7 +53,7 @@ describe('Unit: New Project', function() {
     expect(project.icon).toBeDefined();
   });
 
-  it('should have type attribute', function() {
+  it('should have a type attribute', function() {
     expect(project.type).toEqual('build');
   });
 
@@ -64,38 +64,54 @@ describe('Unit: New Project', function() {
   it('should have a isSelected in false', function() {
     expect(project.isSelected).toBe(false);
   });
-
-  // expect(foo).toThrowError("foo bar baz");
-
-  // firewall: ['accepted', 'rejected'],
-  // build: ['complete', 'fail']
-
 });
 
-
-describe('Unit: exception', function() {
-
-  // let project;
+describe('Throw exceptions', function() {
 
   beforeEach(function() {
-    // let json = {
-    //   id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
-    //   type: 'invalid'
-    // };
-    // project = new Project(json);
   });
 
-  it('should exist!!!', function() {
-    // let json = {
-    //   id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
-    //   type: 'invalid'
-    // };
-    // // project = new Project(json);
-    // // throw new TypeError('type not defined')
-    // // expect(new Project(json)).toThrowError('type not defined');
-    // expect(new Project(json)).toThrowError(TypeError);
-    // // expect(foo).toThrowError("foo bar baz");
+  it('type should not be defined', function() {
+    let json = {
+      id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
+      type: 'invalid'
+    };
+    expect(() => new Project(json)).toThrowError(TypeError, 'type not defined');
   });
 
-  // expect(foo).toThrowError("foo bar baz");
+  it('"state" should not be defined for type firewall', function() {
+    let json = {
+      id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
+      type: 'firewall',
+      state: 'complete'
+    };
+    expect(() => new Project(json)).toThrowError(TypeError, 'state not defined');
+  });
+
+  it('"fail" should not be defined for type firewall', function() {
+    let json = {
+      id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
+      type: 'firewall',
+      state: 'fail'
+    };
+    expect(() => new Project(json)).toThrowError(TypeError, 'state not defined');
+  });
+
+  it('"accepted" should not be defined for type build', function() {
+    let json = {
+      id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
+      type: 'build',
+      state: 'accepted'
+    };
+    expect(() => new Project(json)).toThrowError(TypeError, 'state not defined');
+  });
+
+  it('"rejected" should not be defined for type build', function() {
+    let json = {
+      id: '28d7eb92-0d96-48ba-89d8-3a9d7048b67a',
+      type: 'build',
+      state: 'rejected'
+    };
+    expect(() => new Project(json)).toThrowError(TypeError, 'state not defined');
+  });
 });

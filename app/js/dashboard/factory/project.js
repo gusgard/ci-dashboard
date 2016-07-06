@@ -49,6 +49,7 @@ class Project {
       this.state = state;
     } else {
       console.error('state not defined');
+      throw new TypeError('state not defined');
     }
   }
 

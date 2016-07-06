@@ -35,14 +35,8 @@ class PieChart {
       chart.render();
     });
   }
-
-  // Based on: http://www.sitepoint.com/writing-angularjs-apps-using-es6/
-  static directiveFactory () {
-    PieChart.instance = new PieChart();
-    return PieChart.instance;
-  }
 }
 
-PieChart.directiveFactory.$inject = [];
+PieChart.$inject = [];
 
 export default PieChart;
