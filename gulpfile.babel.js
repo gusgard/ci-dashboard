@@ -110,7 +110,7 @@ gulp.task('server', () => {
   browserSync({
     notify: false,
     server: DIRS.dest,
-    tunnel: 'angularseedes6',
+    // tunnel: 'angularseedes6',
     browser: 'google chrome',
     port: 8000
   });

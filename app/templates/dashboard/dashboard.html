@@ -48,9 +48,18 @@ layout-padding layout-margin layout-fill
       <span flex style="height: 250px; background: pink"></span>
       <div flex>
         <pie-chart data="::project.unitTest" width="150" height="150"></pie-chart>
+        <coverage-bar title="{{project.unitTest.coverage + '%'}}" subtitle="code covered">
+        </coverage-bar>
       </div>
       <div flex>
-        <pie-chart data="::project.unitTest" width="150" height="150"></pie-chart>
+        <md-card md-theme="default" md-theme-watch>
+          <md-card-title>
+            <md-card-title-text>
+              <span class="md-subhead">Functional Test</span>
+              <pie-chart data="::project.functionalTest" width="120" height="120"></pie-chart>
+            </md-card-title-text>
+          </md-card-title>
+        </md-card>
       </div>
     </div>
   </div>

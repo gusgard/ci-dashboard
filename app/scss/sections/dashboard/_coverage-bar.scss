@@ -1,0 +1,23 @@
+// -----------------------------------------------------------------------------
+
+.coverage-bar {
+  width: 100%;
+  height: 2.5rem;
+  .first {
+    background: $green;
+    display: inline-block;
+  }
+  .last {
+    background: $red;
+    display: inline-block;
+  }
+}
+
+.value {
+  text-align: center;
+  width: 100%;
+  margin-top: -2.5rem;
+  p {
+    margin: 0;
+  }
+}

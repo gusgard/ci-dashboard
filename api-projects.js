@@ -29,14 +29,14 @@ var generateProject = function () {
       time: faker.date.recent()
     };
     project.unitTest = {
-      passed: faker.random.number({max: 500}),
-      fail: faker.random.number({max: 250}),
-      coverage: faker.random.number({max: 100})
+      passed: faker.random.number({min: 20, max: 500}),
+      fail: faker.random.number({min: 10, max: 250}),
+      coverage: faker.random.number({min: 5, max: 110})
     };
     project.functionalTest = {
-      passed: faker.random.number({max: 400}),
-      fail: faker.random.number({max: 200}),
-      coverage: faker.random.number({max: 100})
+      passed: faker.random.number({min: 15, max: 400}),
+      fail: faker.random.number({min: 11, max: 200}),
+      coverage: faker.random.number({min: 10, max: 100})
     };
     resolve(project);
   });
