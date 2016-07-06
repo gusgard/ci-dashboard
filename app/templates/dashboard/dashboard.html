@@ -2,14 +2,44 @@
 
 <div class="project">
   <div class="project-header" layout="row">
-    <span flex="15"> Changelist / Build </span>
-    <span flex="15"> Owner </span>
-    <span flex="20"> Time started </span>
-    <span flex="10"> State </span>
-    <span flex="10"> Metrics </span>
-    <span flex="10"> Build </span>
-    <span flex="10"> Unit Test </span>
-    <span flex="10"> Functional Test </span>
+    <span flex="15">
+      <div class="center">
+        Changelist / Build 
+      </div>
+    </span>
+    <span flex="15">
+      <div class="center">Owner</div>
+    </span>
+    <span flex="20">
+      <div class="center">
+        Time started
+      </div>
+    </span>
+    <span flex="10">
+      <div class="center">
+        State
+      </div>
+    </span>
+    <span flex="10">
+      <div class="center">
+        Metrics
+      </div>
+    </span>
+    <span flex="10">
+      <div class="center">
+        Build
+      </div>
+    </span>
+    <span flex="10">
+      <div class="center">
+        Unit Test
+      </div>
+    </span>
+    <span flex="10">
+      <div class="center">
+        Functional Test
+      </div>
+    </span>
   </div>
 
   <div class="project-row"
@@ -30,9 +60,19 @@ layout-padding layout-margin layout-fill
       </span>
       <span flex="10">{{::project.name}}</span>
 
-      <span flex="15">{{::project.owner}}</span>
-      <span flex="20">{{::project.time}}</span>
-      <span class="state" flex="10">{{::project.state}}</span>
+      <span flex="15">
+        <div class="center">{{::project.owner}}</div>
+      </span>
+      <span flex="20">
+        <div class="center">
+          {{::project.time}}
+        </div>
+      </span>
+      <span class="state" flex="10">
+        <div class="center">
+          {{::project.state}}
+        </div>
+      </span>
       <span flex="10">
         <status-bar ng-class="{ 'success': {{project.metrics.success}},
                                 'error': {{project.metrics.error > 5}} }">
