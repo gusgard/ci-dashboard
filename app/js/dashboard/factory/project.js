@@ -57,7 +57,9 @@ class Project {
       test: metrics.test,
       maintainability: metrics.maintainability,
       security: metrics.security,
-      workmanship: metrics.workmanship
+      workmanship: metrics.workmanship,
+      error: metrics.error,
+      success: metrics.success
     };
   }
 
@@ -65,7 +67,9 @@ class Project {
     this.build = {
       debug: build.debug,
       release: build.release,
-      time: new Date(build.time)
+      time: new Date(build.time),
+      error: build.error,
+      success: build.success
     };
   }
 
@@ -73,7 +77,9 @@ class Project {
     this.unitTest = {
       passed: unitTest.passed,
       fail: unitTest.fail,
-      coverage: unitTest.coverage
+      coverage: unitTest.coverage,
+      error: unitTest.error,
+      success: unitTest.success
     };
   }
 
@@ -81,7 +87,9 @@ class Project {
     this.functionalTest = {
       passed: functionalTest.passed,
       fail: functionalTest.fail,
-      coverage: functionalTest.coverage
+      coverage: functionalTest.coverage,
+      error: functionalTest.error,
+      success: functionalTest.success
     };
   }
 

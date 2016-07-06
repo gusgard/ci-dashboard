@@ -1,7 +1,3 @@
-<section class="view-one">
-  <h1>Dashboard</h1>
-</section>
-
 <!-- .material-icons.md-64 { font-size: 64px; } -->
 
 <div class="project">
@@ -37,10 +33,26 @@ layout-padding layout-margin layout-fill
       <span flex="15">{{::project.owner}}</span>
       <span flex="20">{{::project.time}}</span>
       <span class="state" flex="10">{{::project.state}}</span>
-      <span flex="10">π</span>
-      <span flex="10">π</span>
-      <span flex="10">π</span>
-      <span flex="10">π</span>
+      <span flex="10">
+        <status-bar ng-class="{ 'success': {{project.metrics.success}},
+                                'error': {{project.metrics.error > 5}} }">
+        </status-bar>
+      </span>
+      <span flex="10">
+        <status-bar ng-class="{ 'success': {{project.build.success}},
+                                'error': {{project.build.error > 5}} }">
+        </status-bar>
+      </span>
+      <span flex="10">
+        <status-bar ng-class="{ 'success': {{project.unitTest.success}},
+                                'error': {{project.unitTest.error > 5}} }">
+        </status-bar>
+      </span>
+      <span flex="10">
+        <status-bar ng-class="{ 'success': {{project.functionalTest.success}},
+                                'error': {{project.functionalTest.error > 5}} }">
+        </status-bar>
+      </span>
     </div>
     <div layout="row" flex ng-if="project.isSelected">
       <span flex style="height: 250px; background: tomato"></span>

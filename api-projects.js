@@ -21,22 +21,30 @@ var generateProject = function () {
       test: faker.random.number({max: 100}),
       maintainability: faker.random.number({max: 100}),
       security: faker.random.number({max: 100}),
-      workmanship: faker.random.number({max: 100})
+      workmanship: faker.random.number({max: 100}),
+      error: faker.random.number({min: 1, max: 10}),
+      success: faker.random.boolean()
     };
     project.build = {
       debug: {},
       release: {},
-      time: faker.date.recent()
+      time: faker.date.recent(),
+      error: faker.random.number({min: 1, max: 10}),
+      success: faker.random.boolean()
     };
     project.unitTest = {
       passed: faker.random.number({min: 20, max: 500}),
       fail: faker.random.number({min: 10, max: 250}),
-      coverage: faker.random.number({min: 5, max: 110})
+      coverage: faker.random.number({min: 5, max: 100}),
+      error: faker.random.number({min: 1, max: 10}),
+      success: faker.random.boolean()
     };
     project.functionalTest = {
       passed: faker.random.number({min: 15, max: 400}),
       fail: faker.random.number({min: 11, max: 200}),
-      coverage: faker.random.number({min: 10, max: 100})
+      coverage: faker.random.number({min: 10, max: 100}),
+      error: faker.random.number({min: 1, max: 10}),
+      success: faker.random.boolean()
     };
     resolve(project);
   });

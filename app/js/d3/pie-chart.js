@@ -27,20 +27,17 @@ class PieChart {
 
     this.radius = Math.min(this.width, this.height) / 2;
 
+    let pie = d3.layout.pie().value(d => d.value);
+
     this.container = this.selection
       .append('svg')
       .attr('width', this.width)
       .attr('height', this.height)
       .append('g')
-        .attr('transform', `translate(${this.width / 2}, ${this.height / 2})`);
-
-    let pie = d3.layout.pie().value(d => d.value);
-
-    this.g = this.container.selectAll('.arc')
-        .data(pie(this.data))
-      .enter()
-        .append('g')
-        .attr('class', 'arc');
+      .attr('transform', `translate(${this.width / 2}, ${this.height / 2})`)
+      .selectAll('.arc')
+      .data(pie(this.data))
+      .enter();
   }
 
   /**
@@ -71,7 +68,9 @@ class PieChart {
       return (d) => arc(i(d));
     };
 
-    this.g
+    this.container
+        .append('g')
+        .attr('class', 'arc')
         .append('path')
         .attr('d', arc)
         .style('fill', d => color(d.data.label))
@@ -92,10 +91,13 @@ class PieChart {
         .outerRadius(this.radius - padding)
         .innerRadius(this.radius - padding);
 
-    this.g.append('text')
-        .attr('transform', d => `translate(${labelArc.centroid(d)})`)
-        .attr('dy', '.35em')
-        .text(d => d.data.label);
+    this.container
+      .append('g')
+      .attr('class', 'label')
+      .append('text')
+      .attr('transform', d => `translate(${labelArc.centroid(d)})`)
+      .attr('dy', '.35em')
+      .text(d => d.data.label);
 
     return this;
   }

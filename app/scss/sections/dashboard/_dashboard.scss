@@ -2,14 +2,11 @@
 // Dashboard PAGE
 // =============================================================================
 
-// Layout
-// -----------------------------------------------------------------------------
-.view-one {
-  background-color: $primary;
-}
-
 $animation-duration: 0.5s;
 $max-heigh: 20rem;
+
+// Layout
+// -----------------------------------------------------------------------------
 
 .project {
   span {
@@ -42,32 +39,29 @@ $max-heigh: 20rem;
         // margin-top: 0.5rem;
       }
     }
-    &.accepted {
-      @include border(limegreen);
-      // background: lighten(limegreen, 5%);
+    &.accepted, &.complete {
+      border: 0.3rem solid $green;
+      background: lighten($lightgreen, 30%);
+      @include linearGradient(lighten($lightgreen, 30%), $white)
       span {
-        color: limegreen;
+        color: $green;
       }
     }
-    &.rejected {
-      @include border(orangered);
-      // background: lighten(orangered, 5%);
+
+    &.rejected, &.fail {
+      border: 0.3rem solid $red;
+      @include linearGradient(lighten($lightred, 30%), $white)
       span {
-        color: orangered;
+        color: $red;
       }
     }
-    &.complete {
-      @include border(forestgreen);
-      // background: lighten(forestgreen, 5%);
-      span {
-        color: forestgreen;
+
+    status-bar {
+      &.success .status-bar {
+        background: $green
       }
-    }
-    &.fail {
-      @include border(tomato);
-      // background: lighten(tomato, 5%);
-      span {
-        color: tomato;
+      &.error .status-bar {
+        background: $red
       }
     }
   }

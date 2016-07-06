@@ -1,11 +1,15 @@
-@mixin border($color) {
-  border: 0.3rem solid $color;
-}
+// @mixin crossBrowser($property, $css) {
+//   -webkit-#{$property} : $css;
+//   -moz-#{$property} : $css;
+//   -o-#{$property} : $css;
+//   -ms-#{$property} : $css;
+//   #{$property} : $css;
+// }
 
-@mixin crossBrowser($property, $css) {
-  -webkit-#{$property} : $css;
-  -moz-#{$property} : $css;
-  -o-#{$property} : $css;
-  -ms-#{$property} : $css;
-  #{$property} : $css;
+@mixin linearGradient($from, $to) {
+  background: $from; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $from, $to); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $from, $to); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $from, $to); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $from, $to); /* Standard syntax */
 }
