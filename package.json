@@ -1,24 +1,18 @@
 {
-  "name": "angular-seed-es6",
+  "name": "ci-dashboard",
   "version": "0.0.1",
-  "description": "Seed project for angular 1.x apps using best practices and es6",
-  "homepage": "https://github.com/gusgard/angular-seed-es6#readme",
+  "description": "Continuous Integration dashboard",
+  "homepage": "https://github.com/gusgard/ci-dashboard#readme",
   "author": "Gustavo Gard",
-  "keywords": [
-    "angular",
-    "es6",
-    "angular-seed",
-    "template"
-  ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/gusgard/angular-seed-es6.git"
+    "url": "git+https://github.com/gusgard/ci-dashboard.git"
   },
   "license": "MIT",
   "scripts": {
     "start": "gulp watch",
     "build": "gulp build",
-    "test": "karma start karma.conf.js",
+    "test": "karma start --reporters=mocha karma.conf.js",
     "tests": "karma start --reporters=mocha --no-single-run",
     "server": "gulp generateProjects"
   },
@@ -44,7 +38,6 @@
     "browserify": "^13.0.0",
     "browserify-ngannotate": "^2.0.0",
     "bulkify": "^1.2.0",
-    "chai": "^3.5.0",
     "debowerify": "^1.4.1",
     "eslint": "^3.0.0",
     "estraverse-fb": "^1.3.1",
@@ -66,27 +59,14 @@
     "karma": "^1.1.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-browserify": "^5.0.5",
-    "karma-chrome-launcher": "^1.0.1",
-    "karma-coverage": "^1.0.0",
-    "karma-html-reporter": "^0.2.7",
     "karma-jasmine": "^1.0.2",
-    "karma-junit-reporter": "^1.1.0",
-    "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.0.4",
-    "karma-ng-html2js-preprocessor": "^1.0.0",
     "karma-phantomjs-launcher": "^1.0.1",
-    "karma-sinon-chai": "^1.2.2",
-    "mocha": "^2.5.3",
     "phantomjs-prebuilt": "^2.1.7",
     "run-sequence": "^1.1.5",
-    "sinon": "^1.17.4",
-    "sinon-chai": "^2.8.0",
     "stringify": "^5.1.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.7.0"
-  },
-  "bugs": {
-    "url": "https://github.com/gusgard/angular-seed-es6/issues"
   }
 }

@@ -20,6 +20,7 @@ module.exports = function (config) {
       'node_modules/d3/d3.min.js',
       'node_modules/moment/min/moment.min.js',
       'node_modules/angular-mocks/angular-mocks.js',
+      // To enable ES7 features (like 'include').
       'node_modules/babel-polyfill/dist/polyfill.js',
       'app/js/**/*.test.js',
       'app/js/**/**/*.test.js'
@@ -62,7 +63,6 @@ module.exports = function (config) {
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
     browsers: ['PhantomJS'],
-    // browsers: ['Chrome', 'Firefox', 'Safari', 'PhantomJS']
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
