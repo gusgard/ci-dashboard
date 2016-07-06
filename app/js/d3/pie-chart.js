@@ -8,11 +8,12 @@ import d3 from 'd3';
  * This chart constructor expects an options object with the following
  * structure:
  *
- * @param {object}      opts:       An object with the chart options.
- * @param {number}      opts.width: The width of the canvas, not the chart.
- * @param {number}      ops.height: The height of the canvas, not the chart.
- * @param {HTMLElement} opts.root:  The container's DOM element.
- * @param {object}      opts.risk:   The risk objects.
+ * @param {object}      opts:          An object with the chart options.
+ * @param {number}      opts.width:    The width of the canvas, not the chart.
+ * @param {number}      opts.height:   The height of the canvas, not the chart.
+ * @param {HTMLElement} opts.root:     The container's DOM element.
+ * @param {object}      opts.data:     The data object.
+ * @param {number}      opts.duration: The duration of the animation.
  */
 class PieChart {
   constructor (opts) {
@@ -26,10 +27,6 @@ class PieChart {
 
     this.radius = Math.min(this.width, this.height) / 2;
 
-    this.data = [
-      { label: 'TR', value: 1 },
-      { label: 'BE', value: 2 }
-    ];
     this.container = this.selection
       .append('svg')
       .attr('width', this.width)
@@ -37,9 +34,7 @@ class PieChart {
       .append('g')
         .attr('transform', `translate(${this.width / 2}, ${this.height / 2})`);
 
-    let pie = d3.layout.pie()
-        // .sort(null)
-        .value(d => d.value);
+    let pie = d3.layout.pie().value(d => d.value);
 
     this.g = this.container.selectAll('.arc')
         .data(pie(this.data))
@@ -66,35 +61,36 @@ class PieChart {
       .outerRadius(this.radius - 10)
       .innerRadius(0);
 
-    // function tweenPie (finish) {
-    //   finish.innerRadius = 0;
-    //   var start = {
-    //     startAngle: 0,
-    //     endAngle: 0
-    //   };
-    //   var i = d3.interpolate(start, finish);
-    //   return function (d) { return arc(i(d)); };
-    // }
+    let tweenPie = (finish) => {
+      finish.innerRadius = 0;
+      var start = {
+        startAngle: 0,
+        endAngle: 0
+      };
+      var i = d3.interpolate(start, finish);
+      return (d) => arc(i(d));
+    };
 
     this.g
         .append('path')
         .attr('d', arc)
         .style('fill', d => color(d.data.label))
         .transition()
-        // .ease('bounce')
-        // .duration(this.duration)
-        // .attrTween('d', tweenPie);
+        .ease('bounce')
+        .duration(this.duration)
+        .attrTween('d', tweenPie);
 
     return this;
   }
-  // http://jsfiddle.net/thmain/xL48ru9k/1/
+
   /**
    * Render the arc and the value in the top of the chart.
    */
   renderText () {
+    let padding = 40;
     let labelArc = d3.svg.arc()
-        .outerRadius(this.radius - 40)
-        .innerRadius(this.radius - 40);
+        .outerRadius(this.radius - padding)
+        .innerRadius(this.radius - padding);
 
     this.g.append('text')
         .attr('transform', d => `translate(${labelArc.centroid(d)})`)

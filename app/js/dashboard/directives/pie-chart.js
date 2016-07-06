@@ -18,6 +18,11 @@ class PieChart {
 
       // Delete the previous chart (if any).
       element[0].innerHTML = '';
+      // Format data
+      data = [
+        { label: data.passed, value: data.passed },
+        { label: data.fail, value: data.fail }
+      ];
       let chart = new D3PieChart({
         root: element[0],
         width: scope.width,
