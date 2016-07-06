@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 const constrains = {
   firewall: ['accepted', 'rejected'],
   build: ['complete', 'fail']
@@ -14,7 +16,7 @@ class Project {
     this.setType(initial);
     this.name = initial.name || 'Name not defined';
     this.owner = initial.owner || 'Owner not defined';
-    this.time = new Date(initial.time);
+    this.time = moment(new Date(initial.time)).format('MM/DD/YYYY hh:mm A');
     this.setState(initial);
     this.setMetrics(initial);
     this.setBuild(initial);
