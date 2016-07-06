@@ -7,9 +7,9 @@ import './dashboard/module.js';
 let dependencies = [
   'ui.router',
   'ngMaterial',
-  'myApp.dashboard'
+  'ciApp.dashboard'
 ];
 
 angular
-  .module('myApp', dependencies)
+  .module('ciApp', dependencies)
   .config(configRouter);

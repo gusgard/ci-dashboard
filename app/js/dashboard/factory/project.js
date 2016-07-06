@@ -36,6 +36,7 @@ class Project {
       this.type = type;
     } else {
       console.error('type not defined');
+      throw new TypeError('type not defined');
     }
   }
 

@@ -6,3 +6,4 @@ tmp
 .DS_Store
 .idea
 npm-debug.log
+TESTS-PhantomJS_2.1.1_(Mac_OS_X_0.0.0).xml
