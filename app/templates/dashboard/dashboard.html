@@ -1,5 +1,3 @@
-<!-- .material-icons.md-64 { font-size: 64px; } -->
-
 <div class="project">
   <div class="project-header" layout="row" layout-align="center center">
     <span flex="15">
@@ -47,11 +45,6 @@
     ng-class="{ 'selected': project.isSelected, '{{::project.state}}': project.state }"
     ng-click="DashboardCtrl.expand(project)"
     layout="column">
-     <!-- layout-align=" center"
-layout-padding layout-margin layout-fill
-> -->
-    <!-- layout-margin
-    layout-padding> -->
 
     <div class="contract" layout="row" flex layout-align="center center" >
       <!-- layout-align="centercenter" -->
@@ -207,19 +200,24 @@ layout-padding layout-margin layout-fill
         </md-card-content>
       </md-card>
 
-      <!-- Build -->
-      <md-card flex md-theme="default" md-theme-watch class="build">
+      <!-- Result -->
+      <md-card flex md-theme="default" md-theme-watch class="result">
         <md-card-content layout="column" layout-align="space-between">
           <strong>Result</strong>
-          <div layout="row">
-            <div flex class="center">
-              <i class="material-icons md-64">build</i>
-              aaaa
-            </div>
+          <div layout="column" class="content">
+
+            <span flex class="center">{{DashboardCtrl.actions[project.state].change}}</span>
+
+            <h1 flex class="center">
+              {{DashboardCtrl.actions[project.state].description}}
+            </h1>
 
           </div>
-          <div layout="row" class="center">
-            lala
+          <div layout="row" class="center footer">
+            <md-button flex class="md-raised md-primary">
+              <i class="material-icons">{{DashboardCtrl.actions[project.state].icon}}</i>
+              {{DashboardCtrl.actions[project.state].button}}
+            </md-button>
           </div>
 
         </md-card-content>
