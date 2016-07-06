@@ -1,10 +1,10 @@
 <!-- .material-icons.md-64 { font-size: 64px; } -->
 
 <div class="project">
-  <div class="project-header" layout="row">
+  <div class="project-header" layout="row" layout-align="center center">
     <span flex="15">
       <div class="center">
-        Changelist / Build 
+        Changelist / Build
       </div>
     </span>
     <span flex="15">
@@ -94,25 +94,127 @@ layout-padding layout-margin layout-fill
         </status-bar>
       </span>
     </div>
-    <div layout="row" flex ng-if="project.isSelected">
-      <span flex style="height: 250px; background: tomato"></span>
-      <span flex style="height: 250px; background: aqua"></span>
-      <span flex style="height: 250px; background: pink"></span>
-      <div flex>
-        <pie-chart data="::project.unitTest" width="150" height="150"></pie-chart>
-        <coverage-bar title="{{project.unitTest.coverage + '%'}}" subtitle="code covered">
-        </coverage-bar>
-      </div>
-      <div flex>
-        <md-card md-theme="default" md-theme-watch>
-          <md-card-title>
-            <md-card-title-text>
-              <span class="md-subhead">Functional Test</span>
-              <pie-chart data="::project.functionalTest" width="120" height="120"></pie-chart>
-            </md-card-title-text>
-          </md-card-title>
-        </md-card>
-      </div>
+    <div class="expanded" layout="row" flex ng-if="project.isSelected">
+      <!-- Metrics -->
+      <md-card flex md-theme="default" md-theme-watch class="metrics">
+        <md-card-content layout="column" layout-align="space-between">
+          <strong>Metrics</strong>
+          <div layout="row">
+            <div flex class="center">
+              <div class="arrow">
+                <i class="material-icons md-64">arrow_upward</i>
+                <span>{{::project.metrics.test}}</span>
+              </div>
+              <span>Test</span>
+            </div>
+            <div flex class="center">
+              <div class="arrow">
+                <i class="material-icons md-64">arrow_back</i>
+                <span>{{::project.metrics.maintainability}}</span>
+              </div>
+              <span>Maintainability</span>
+            </div>
+          </div>
+
+          <div layout="row">
+            <div flex class="center">
+              <div class="arrow">
+                <i class="material-icons md-64">arrow_forward</i>
+                <span>{{::project.metrics.security}}</span>
+              </div>
+              <span>Security</span>
+            </div>
+            <div flex class="center">
+              <div class="arrow">
+                <i class="material-icons md-64">arrow_downward</i>
+                <span>{{::project.metrics.workmanship}}</span>
+              </div>
+              <span>Workmanship</span>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
+
+      <!-- Build -->
+      <md-card flex md-theme="default" md-theme-watch class="build">
+        <md-card-content layout="column" layout-align="space-between">
+          <strong>Build</strong>
+          <div layout="row">
+            <div flex class="center">
+              <i class="material-icons md-64">bug_report</i>
+              Debug
+            </div>
+            <div flex class="center">
+              <i class="material-icons md-64">add_to_queue</i>
+              Release
+            </div>
+          </div>
+          <div layout="row" class="center">
+            {{::project.build.time}}
+          </div>
+
+        </md-card-content>
+      </md-card>
+
+      <!-- Unit Test -->
+      <md-card flex md-theme="default" md-theme-watch>
+        <md-card-content layout="column" layout-align="space-between">
+          <strong>Unit Test</strong>
+          <div class="" layout="row" layout-align="center center">
+            <pie-chart flex data="::project.unitTest" width="125" height="125"
+              ng-style="{ 'min-width': '125px'}">
+            </pie-chart>
+            <span flex class="center">
+              <div>{{project.unitTest.percentage}} %</div>
+              <div>test passed</div>
+            </span>
+          </div>
+
+          <coverage-bar title="{{::project.unitTest.coverage + '%'}}" subtitle="code covered">
+          </coverage-bar>
+        </md-card-content>
+      </md-card>
+
+      <!-- Functional Test -->
+      <md-card flex md-theme="default" md-theme-watch>
+        <md-card-content layout="column" layout-align="space-between">
+          <strong>Functional Test</strong>
+          <div class="" layout="row" layout-align="center center">
+            <pie-chart flex data="::project.functionalTest" width="125" height="125"
+              ng-style="{ 'min-width': '125px'}">
+            </pie-chart>
+            <span flex class="center">
+              <div>{{project.functionalTest.percentage}} %</div>
+              <div>test passed</div>
+            </span>
+          </div>
+
+          <coverage-bar title="{{::project.functionalTest.coverage + '%'}}" subtitle="code covered">
+          </coverage-bar>
+        </md-card-content>
+      </md-card>
+
+      <!-- Build -->
+      <md-card flex md-theme="default" md-theme-watch class="build">
+        <md-card-content layout="column" layout-align="space-between">
+          <strong>Result</strong>
+          <div layout="row">
+            <div flex class="center">
+              <i class="material-icons md-64">build</i>
+              aaaa
+            </div>
+
+          </div>
+          <div layout="row" class="center">
+            lala
+          </div>
+
+        </md-card-content>
+      </md-card>
+      <!-- <span flex style="background: tomato">
+        <i class="material-icons md-64">build</i>
+
+      </span> -->
     </div>
   </div>
 </div>

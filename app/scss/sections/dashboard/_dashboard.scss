@@ -10,6 +10,15 @@ $max-heigh: 20rem;
 .center {
   text-align: center;
 }
+
+md-card {
+  height: inherit;
+  border: .3rem solid green;
+  md-card-content {
+    height: 100%;
+  }
+}
+
 .project {
   span {
     // margin-top: auto;
@@ -34,18 +43,32 @@ $max-heigh: 20rem;
         text-transform: capitalize;
       }
     }
+
+    .expanded {
+      .metrics {
+        .arrow span {
+          font-size: x-large;
+          display: block;
+          margin-top: -3rem;
+          margin-bottom: 1rem;
+        }
+      }
+      .build {
+
+      }
+    }
     &.selected {
       height: $max-heigh;
       // align-items: initial;
-      span {
-        // margin-top: 0.5rem;
-      }
+      // span {
+      // margin-top: 0.5rem;
+      // }
     }
     &.accepted, &.complete {
       border: 0.3rem solid $green;
       background: lighten($lightgreen, 30%);
       @include linearGradient(lighten($lightgreen, 30%), $white)
-      span {
+      .contract span {
         color: $green;
       }
     }
@@ -53,7 +76,7 @@ $max-heigh: 20rem;
     &.rejected, &.fail {
       border: 0.3rem solid $red;
       @include linearGradient(lighten($lightred, 30%), $white)
-      span {
+      .contract span {
         color: $red;
       }
     }

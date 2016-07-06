@@ -67,27 +67,36 @@ class Project {
     this.build = {
       debug: build.debug,
       release: build.release,
-      time: new Date(build.time),
+      time: moment(new Date(build.time)).format('hh:mm A - MM/DD/YYYY'),
       error: build.error,
       success: build.success
     };
   }
 
   setUnitTest ({unitTest}) {
+    let passed = unitTest.passed;
+    let fail = unitTest.fail;
+    let percentage = passed / (passed + fail) * 100;
     this.unitTest = {
-      passed: unitTest.passed,
-      fail: unitTest.fail,
+      passed: passed,
+      fail: fail,
       coverage: unitTest.coverage,
+      percentage: percentage.toFixed(1),
       error: unitTest.error,
       success: unitTest.success
     };
+    //
   }
 
   setFunctionalTest ({functionalTest}) {
+    let passed = functionalTest.passed;
+    let fail = functionalTest.fail;
+    let percentage = passed / (passed + fail) * 100;
     this.functionalTest = {
-      passed: functionalTest.passed,
-      fail: functionalTest.fail,
+      passed: passed,
+      fail: fail,
       coverage: functionalTest.coverage,
+      percentage: percentage.toFixed(1),
       error: functionalTest.error,
       success: functionalTest.success
     };
