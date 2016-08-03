@@ -1,5 +1,3 @@
-
-
 class ProjectStore {
   constructor ($http, Project) {
     this.$http = $http;

@@ -4,7 +4,7 @@ let CoverageBar = {
     subtitle: '@'
   },
   controllerAs: 'CoverageBarCtrl',
-  templateUrl: 'templates/dashboard/coverage-bar.html'
+  templateUrl: 'templates/dashboard/components/coverage-bar.html'
 };
 
 export default CoverageBar;
