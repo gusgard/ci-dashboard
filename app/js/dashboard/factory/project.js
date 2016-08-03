@@ -86,7 +86,6 @@ class Project {
       error: unitTest.error,
       success: unitTest.success
     };
-    //
   }
 
   setFunctionalTest ({functionalTest}) {

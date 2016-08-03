@@ -9,11 +9,12 @@ $max-heigh: 20rem;
 // -----------------------------------------------------------------------------
 .center {
   text-align: center;
+  align-self: center;
 }
 
 md-card {
   height: inherit;
-  border: .3rem solid green;
+  border: .3rem solid $black;
   md-card-content {
     height: 100%;
   }
@@ -32,57 +33,23 @@ md-card {
   .project-row {
     height: 4rem;
     margin: 0.5rem;
+    outline: none;
     transition: height $animation-duration;
 
     .contract {
       flex-grow: 0;
+      margin-top: auto;
+      margin-bottom: auto;
+      .build {
+        word-break: break-word;
+      }
       .state {
         text-transform: capitalize;
       }
     }
 
-    .expanded {
-      .metrics {
-        .arrow {
-          i {
-            &.positive {
-              color: $green;
-            }
-            &.negative {
-              color: $red;
-            }
-          }
-          span {
-            font-size: x-large;
-            display: block;
-            margin-top: -3rem;
-            margin-bottom: 1rem;
-          }
-        }
-      }
-      .build {
-
-      }
-      .result {
-        .content {
-          span {
-            margin-top: 1rem;
-          };
-          h1 {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-          }
-        }
-        .footer {
-          i {
-            vertical-align: middle;
-          }
-          span {
-            vertical-align: middle;
-          }
-        }
-      }
-    }
+    // .expanded {
+    // }
     &.selected {
       height: $max-heigh;
     }

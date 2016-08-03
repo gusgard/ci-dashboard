@@ -1,0 +1,52 @@
+<md-card flex md-theme="default" md-theme-watch>
+  <md-card-content layout="column" layout-align="space-between">
+    <strong>{{::MetricsCardCtrl.title}}</strong>
+    <div layout="row">
+      <div flex class="center">
+        <div class="arrow">
+          <i class="material-icons md-64"
+            ng-class="::MetricsCardCtrl.test > 50 ? 'positive' : 'negative'">
+            <!-- random arrow -->
+            {{::MetricsCardCtrl.test > 50 ? 'arrow_upward' : 'arrow_downward'}}
+          </i>
+          <span>{{::MetricsCardCtrl.test}}</span>
+
+        </div>
+        <span>Test</span>
+      </div>
+      <div flex class="center">
+        <div class="arrow">
+          <i class="material-icons md-64"
+            ng-class="::MetricsCardCtrl.maintainability > 50 ? 'positive' : 'negative'">
+            {{::MetricsCardCtrl.maintainability > 50 ? 'arrow_upward' : 'arrow_downward'}}
+          </i>
+          <span>{{::MetricsCardCtrl.maintainability}}</span>
+        </div>
+        <span>Maintainability</span>
+      </div>
+    </div>
+
+    <div layout="row">
+      <div flex class="center">
+        <div class="arrow">
+          <i class="material-icons md-64 "
+             ng-class="::MetricsCardCtrl.security > 50 ? 'positive' : 'negative'">
+            {{::MetricsCardCtrl.security > 50 ? 'arrow_forward' : 'arrow_back'}}
+          </i>
+          <span>{{::MetricsCardCtrl.security}}</span>
+        </div>
+        <span>Security</span>
+      </div>
+      <div flex class="center">
+        <div class="arrow">
+          <i class="material-icons md-64"
+            ng-class="::MetricsCardCtrl.workmanship > 50 ? 'positive' : 'negative'">
+            {{::MetricsCardCtrl.workmanship > 50 ? 'arrow_forward' : 'arrow_back'}}
+          </i>
+          <span>{{::MetricsCardCtrl.workmanship}}</span>
+        </div>
+        <span>Workmanship</span>
+      </div>
+    </div>
+  </md-card-content>
+</md-card>

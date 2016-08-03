@@ -20,7 +20,7 @@ class PieChart {
     this.root = opts.root;
     this.selection = d3.select(this.root);
     this.data = opts.data;
-    this.duration = opts.duration || 1000;
+    this.duration = opts.duration || 2000;
 
     this.width = opts.width || 300;
     this.height = opts.height || 300;

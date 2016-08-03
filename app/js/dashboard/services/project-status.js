@@ -4,12 +4,7 @@ class ProjectStore {
   constructor ($http, Project) {
     this.$http = $http;
     this.Project = Project;
-    // this.init();
   }
-
-  // init () {
-  //   this.download();
-  // }
 
   get projects () {
     return this._projects;
@@ -28,7 +23,6 @@ class ProjectStore {
         response.data.forEach(p => projects.push(new Project(p)));
         this.projects = projects;
       }
-      // console.log(projects);
     };
     let errorCallback = (error) => {
       console.log(error);

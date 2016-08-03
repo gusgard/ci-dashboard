@@ -1,0 +1,18 @@
+<md-card flex md-theme="default" md-theme-watch>
+  <md-card-content layout="column" layout-align="space-between">
+    <strong>{{::BuildCardCtrl.title}}</strong>
+    <div layout="row">
+      <div flex class="center">
+        <i class="material-icons md-64">{{::BuildCardCtrl.leftIcon}}</i>
+        {{::BuildCardCtrl.leftTitle}}
+      </div>
+      <div flex class="center">
+        <i class="material-icons md-64">{{::BuildCardCtrl.rightIcon}}</i>
+        {{::BuildCardCtrl.rightTitle}}
+      </div>
+    </div>
+    <div layout="row" class="center">
+      {{::BuildCardCtrl.time}}
+    </div>
+  </md-card-content>
+</md-card>

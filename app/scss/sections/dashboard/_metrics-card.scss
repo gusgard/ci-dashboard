@@ -1,0 +1,28 @@
+metrics-card {
+  display: flex;
+  .arrow {
+    background-color: gainsboro;
+    border: 1px solid $white;
+    position: relative;
+    i {
+      &.positive {
+        color: $green;
+      }
+      &.negative {
+        color: $red;
+      }
+    }
+    span {
+      bottom: 0;
+      display: block;
+      font-size: x-large;
+      height: 50%;
+      left: 0;
+      margin: auto;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 50%;
+    }
+  }
+}

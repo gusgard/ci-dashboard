@@ -1,18 +1,46 @@
-# ci-dashboard
+# Continuous integration dashboard
+
+Testing technologies and applying best practices.
+
+This projects use Angular, Angular material, d3, faker, moment, babel, browserify, browser-sync, json-server and more libraries.
+
+# Requirements
+
+mac osx 10.11.5
+node v4.4.7
+
+# Installation
+
+## Dependencies
+```
+npm i
+```
+
+## Start a server that generate random data that will be consumed by the app.
+```
+npm run server
+```
+
+## Start development server.
+```
+npm start
+```
+
+Go to
+http://localhost:8000/
 
 
-## TODO
+# Test
 
-unit test
-auto-prefix (ie10 compatibility)
-progress bar
-d3 ( pie chart )
+```
+npm test
+```
 
-add moment to handle dates.
 
-ng-stats
+# Generate deployment code.
 
-## PLUS
+```
+npm run build
+```
 
-json-server to consume json data. ADD FAKER!
-virtual scroll
+Go to folder ci-dashboard/build

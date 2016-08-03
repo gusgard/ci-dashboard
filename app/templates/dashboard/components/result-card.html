@@ -1,0 +1,21 @@
+<md-card flex md-theme="default" md-theme-watch>
+  <md-card-content layout="column" layout-align="space-between">
+    <strong>{{::ResultCardCtrl.title}}</strong>
+    <div layout="column" class="content">
+
+      <span flex class="center">{{::ResultCardCtrl.change}}</span>
+
+      <h1 flex class="center">
+        {{::ResultCardCtrl.description}}
+      </h1>
+
+    </div>
+    <div layout="row" class="footer">
+      <md-button flex class="md-raised md-primary">
+        <i class="material-icons">{{::ResultCardCtrl.icon}}</i>
+        {{::ResultCardCtrl.button}}
+      </md-button>
+    </div>
+
+  </md-card-content>
+</md-card>

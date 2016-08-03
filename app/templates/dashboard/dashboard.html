@@ -47,12 +47,10 @@
     layout="column">
 
     <div class="contract" layout="row" flex layout-align="center center" >
-      <!-- layout-align="centercenter" -->
       <span flex="5">
         <i class="material-icons md-36">{{::project.icon}}</i>
       </span>
-      <span flex="10">{{::project.name}}</span>
-
+      <span flex="10" class="build">{{::project.name}}</span>
       <span flex="15">
         <div class="center">{{::project.owner}}</div>
       </span>
@@ -89,139 +87,45 @@
     </div>
     <div class="expanded" layout="row" flex ng-if="project.isSelected">
       <!-- Metrics -->
-      <md-card flex md-theme="default" md-theme-watch class="metrics">
-        <md-card-content layout="column" layout-align="space-between">
-          <strong>Metrics</strong>
-          <div layout="row">
-            <div flex class="center">
-              <div class="arrow">
-                <i class="material-icons md-64"
-                  ng-class="::project.metrics.test > 50 ? 'positive' : 'negative'">
-                  <!-- random arrow -->
-                  {{::project.metrics.test > 50 ? 'arrow_upward' : 'arrow_downward'}}
-                </i>
-                <span>{{::project.metrics.test}}</span>
-              </div>
-              <span>Test</span>
-            </div>
-            <div flex class="center">
-              <div class="arrow">
-                <i class="material-icons md-64"
-                  ng-class="::project.metrics.maintainability > 50 ? 'positive' : 'negative'">
-                  {{::project.metrics.maintainability > 50 ? 'arrow_upward' : 'arrow_downward'}}
-                </i>
-                <span>{{::project.metrics.maintainability}}</span>
-              </div>
-              <span>Maintainability</span>
-            </div>
-          </div>
-
-          <div layout="row">
-            <div flex class="center">
-              <div class="arrow">
-                <i class="material-icons md-64 "
-                   ng-class="::project.metrics.security > 50 ? 'positive' : 'negative'">
-                  {{::project.metrics.security > 50 ? 'arrow_forward' : 'arrow_back'}}
-                </i>
-                <span>{{::project.metrics.security}}</span>
-              </div>
-              <span>Security</span>
-            </div>
-            <div flex class="center">
-              <div class="arrow">
-                <i class="material-icons md-64"
-                  ng-class="::project.metrics.workmanship > 50 ? 'positive' : 'negative'">
-                  {{::project.metrics.workmanship > 50 ? 'arrow_forward' : 'arrow_back'}}
-                </i>
-                <span>{{::project.metrics.workmanship}}</span>
-              </div>
-              <span>Workmanship</span>
-            </div>
-          </div>
-        </md-card-content>
-      </md-card>
+      <metrics-card flex title="Metrics"
+        test="{{::project.metrics.test}}"
+        maintainability="{{::project.metrics.maintainability}}"
+        security="{{::project.metrics.security}}"
+        workmanship="{{::project.metrics.workmanship}}">
+      </metrics-card>
 
       <!-- Build -->
-      <md-card flex md-theme="default" md-theme-watch class="build">
-        <md-card-content layout="column" layout-align="space-between">
-          <strong>Build</strong>
-          <div layout="row">
-            <div flex class="center">
-              <i class="material-icons md-64">bug_report</i>
-              Debug
-            </div>
-            <div flex class="center">
-              <i class="material-icons md-64">add_to_queue</i>
-              Release
-            </div>
-          </div>
-          <div layout="row" class="center">
-            {{::project.build.time}}
-          </div>
-
-        </md-card-content>
-      </md-card>
+      <build-card flex title="Build"
+        left-icon="bug_report"
+        left-title="Debug"
+        right-icon="add_to_queue"
+        right-title="Release"
+        time="{{::project.build.time}}">
+      </build-card>
 
       <!-- Unit Test -->
-      <md-card flex md-theme="default" md-theme-watch>
-        <md-card-content layout="column" layout-align="space-between">
-          <strong>Unit Test</strong>
-          <div class="" layout="row" layout-align="center center">
-            <pie-chart flex data="::project.unitTest" width="125" height="125"
-              ng-style="{ 'min-width': '125px'}">
-            </pie-chart>
-            <span flex class="center">
-              <div>{{project.unitTest.percentage}} %</div>
-              <div>test passed</div>
-            </span>
-          </div>
-
-          <coverage-bar title="{{::project.unitTest.coverage + '%'}}" subtitle="code covered">
-          </coverage-bar>
-        </md-card-content>
-      </md-card>
+      <progress-card flex title="Unit Test" data="project.unitTest"
+        percentage="{{project.unitTest.percentage}} %"
+        description="test passed"
+        coverage-title="{{project.unitTest.coverage}} %"
+        coverage-subtitle="code covered">
+      </progress-card>
 
       <!-- Functional Test -->
-      <md-card flex md-theme="default" md-theme-watch>
-        <md-card-content layout="column" layout-align="space-between">
-          <strong>Functional Test</strong>
-          <div class="" layout="row" layout-align="center center">
-            <pie-chart flex data="::project.functionalTest" width="125" height="125"
-              ng-style="{ 'min-width': '125px'}">
-            </pie-chart>
-            <span flex class="center">
-              <div>{{project.functionalTest.percentage}} %</div>
-              <div>test passed</div>
-            </span>
-          </div>
-
-          <coverage-bar title="{{::project.functionalTest.coverage + '%'}}" subtitle="code covered">
-          </coverage-bar>
-        </md-card-content>
-      </md-card>
+      <progress-card flex title="Functional Test" data="project.functionalTest"
+        percentage="{{project.functionalTest.percentage}} %"
+        description="test passed"
+        coverage-title="{{project.functionalTest.coverage}} %"
+        coverage-subtitle="code covered">
+      </progress-card>
 
       <!-- Result -->
-      <md-card flex md-theme="default" md-theme-watch class="result">
-        <md-card-content layout="column" layout-align="space-between">
-          <strong>Result</strong>
-          <div layout="column" class="content">
-
-            <span flex class="center">{{DashboardCtrl.actions[project.state].change}}</span>
-
-            <h1 flex class="center">
-              {{DashboardCtrl.actions[project.state].description}}
-            </h1>
-
-          </div>
-          <div layout="row" class="center footer">
-            <md-button flex class="md-raised md-primary">
-              <i class="material-icons">{{DashboardCtrl.actions[project.state].icon}}</i>
-              {{DashboardCtrl.actions[project.state].button}}
-            </md-button>
-          </div>
-
-        </md-card-content>
-      </md-card>
+      <result-card flex title="Result"
+        change="{{DashboardCtrl.actions[project.state].change}}"
+        description="{{DashboardCtrl.actions[project.state].description}}"
+        icon="{{DashboardCtrl.actions[project.state].icon}}"
+        button="{{DashboardCtrl.actions[project.state].button}}">
+      </result-card>
     </div>
   </div>
 </div>

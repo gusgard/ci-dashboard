@@ -1,0 +1,18 @@
+<md-card flex md-theme="default" md-theme-watch>
+  <md-card-content layout="column" layout-align="space-between">
+    <strong>{{::ProgressCardCtrl.title}}</strong>
+    <div layout="row" layout-align="center center">
+      <pie-chart flex data="::ProgressCardCtrl.data" width="125" height="125"
+        ng-style="{ 'min-width': '125px'}">
+      </pie-chart>
+      <span flex class="center">
+        <div>{{::ProgressCardCtrl.percentage}}</div>
+        <div>{{::ProgressCardCtrl.description}}</div>
+      </span>
+    </div>
+
+    <coverage-bar title="{{::ProgressCardCtrl.coverageTitle}}"
+      subtitle="{{::ProgressCardCtrl.coverageSubtitle}}">
+    </coverage-bar>
+  </md-card-content>
+</md-card>

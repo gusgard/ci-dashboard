@@ -5,9 +5,8 @@ import Project from './factory/project.js';
 import ProjectStore from './services/project-status.js';
 import StatusBar from './directives/status-bar.js';
 
-describe('Classes', function() {
-
-  it('should be defined', function() {
+describe('Classes', () => {
+  it('should be defined', () => {
     expect(CoverageBar).toBeDefined();
     expect(DashboardController).toBeDefined();
     expect(PieChart).toBeDefined();
